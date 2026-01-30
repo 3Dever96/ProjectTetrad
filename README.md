@@ -29,13 +29,18 @@ Project Tetrad is a party based dungeon crawler roguelike.  Every dungeon requir
 The AI bots explore the dungeon with the players, but they don't simply follow the players around.  Rather, they use a simple state machine to logically explore the dungeon on their own.
 
 **Regroup**: The standard state of the AIs.  When there's nothing for the AI to accomplish, it returns to the host player's location.
+
 **Explore**: If the AI is in the same room as the host player and there is an adjacent room that hasn't been explored yet, the AI will target that room and make its way there to explore it.  If there's nothing for it to do in this new room, it returns to the Regroup State.
+
 **Solve**: If there is an obstacle linked to the AI's hero, the AI will target that room to solve the puzzle.  It continues this procedure until all of its locks are open, then returns to the Regroup State.
+
 **Hunt**: If the Mini-Boss has been Discovered, all AI characters prioritize defeating it over all other actions.  They make their way to the Mini-Boss and defeat it.  Afterward, they also target the Boss Key dropped by the Mini-Boss.
+
 **Rally**: If the Boss Key is collected and the location of the Boss Room is discovered, the AIs perform one of two actions in preparation of the boss fight.
-* If the AI is the hero that collected the key, it makes its way to the closest Boss Door to the host player.
-* If the AI is not the hero that collected the key, it will track and follow the hero that has the key.
-* If an AI has the Boss Key, it will not open the Boss Door until the host player is present in the same room as it.
+   * If the AI is the hero that collected the key, it makes its way to the closest Boss Door to the host player.
+   * If the AI is not the hero that collected the key, it will track and follow the hero that has the key.
+   * If an AI has the Boss Key, it will not open the Boss Door until the host player is present in the same room as it.
+
 **Final**: If the Boss Door is open, the AI will target the Boss.
 
 ## Getting Started
